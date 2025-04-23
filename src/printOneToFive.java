@@ -1,7 +1,7 @@
 public class printOneToFive {
     public static void main (String[] args){
-        int n = 1;
-        printDigits (n);
+//        int n = 1;
+        printDigits (5);
     }
 
     private static void printDigits(int n) {

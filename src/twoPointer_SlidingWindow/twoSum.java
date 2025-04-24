@@ -7,6 +7,8 @@ public class twoSum {
         System.out.println (isPresent(arr, k));
     }
 // if given that the array is sorted, we can use the Binary Search as well.
+
+//    this is the SHRINK PATTERN
     public static boolean isPresent(int[] arr, int k){
         for (int i = 0; i < arr.length; i++){
             for (int j = arr.length - 1; j > 0; j--){

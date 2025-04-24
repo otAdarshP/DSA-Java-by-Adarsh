@@ -4,13 +4,12 @@ public class ReverseNto1 {
         reversePrint (n);
     }
 
-    public static int reversePrint (int n){
-         if (n <= 1){
-             return n;
-         }
-         else{
-             System.out.println (n);
-             return reversePrint(n-1);
-         }
+    public static void reversePrint (int n) {
+        if (n == 0) {
+            return;
+        }
+        System.out.println(n);
+        reversePrint(n - 1);
+        System.out.println(n);
     }
 }

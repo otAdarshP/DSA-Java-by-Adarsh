@@ -1,0 +1,171 @@
+// 1. Sum of products of all integers (assuming first N integers)
+public static int sumOfProducts(int n) {
+    int sum = 0;
+    for (int i = 1; i <= n; i++) sum += i * i;
+    return sum;
+}
+------
+// 2. Sum of all prime numbers <= n
+public static int sumOfPrimes(int n) {
+    int sum = 0;
+    for (int i = 2; i <= n; i++) {
+        if (isPrime(i)) sum += i;
+    }
+    return sum;
+}
+
+public static boolean isPrime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
+-------
+// 3. Sum of cubes of all odd numbers <= n
+public static int sumOfCubesOfOdds(int n) {
+    int sum = 0;
+    for (int i = 1; i <= n; i += 2) sum += i * i * i;
+    return sum;
+}
+--------
+// 4. Sum of all factorials <= n
+public static int sumOfFactorials(int n) {
+    int sum = 0;
+    int fact = 1;
+    for (int i = 1; i <= n; i++) {
+        fact *= i;
+        sum += fact;
+    }
+    return sum;
+}
+--------
+// 5. Sum of all elements in array
+public static int sumOfArray(int[] arr) {
+    int sum = 0;
+    for (int num : arr) sum += num;
+    return sum;
+}
+--------
+// 6. Armstrong number check
+public static boolean isArmstrong(int num) {
+    int sum = 0, temp = num;
+    int digits = String.valueOf(num).length();
+    while (temp > 0) {
+        int d = temp % 10;
+        sum += Math.pow(d, digits);
+        temp /= 10;
+    }
+    return sum == num;
+}
+--------
+// 7. Sum of all numbers from 1 to n
+public static int sumOneToN(int n) {
+    return n * (n + 1) / 2;
+}
+------
+// 8. Sum of all squares from 1 to n
+public static int sumOfSquares(int n) {
+    int sum = 0;
+    for (int i = 1; i <= n; i++) sum += i * i;
+    return sum;
+}
+-------
+// 9. Sum of all cubes from 1 to n
+public static int sumOfCubes(int n) {
+    int sum = 0;
+    for (int i = 1; i <= n; i++) sum += i * i * i;
+    return sum;
+}
+---------
+// 10. Check if average is unique
+public static boolean isAverageUnique(int[] arr) {
+    int sum = 0;
+    for (int num : arr) sum += num;
+    double avg = (double) sum / arr.length;
+    for (int num : arr) if (num == avg) return false;
+    return true;
+}
+--------
+// 11. Alphabetical order of strings
+public static String[] sortAlphabetically(String[] arr) {
+    Arrays.sort(arr);
+    return arr;
+}
+--------
+// 12. Reverse an array
+public static void reverseArray(int[] arr) {
+    for (int i = 0, j = arr.length - 1; i < j; i++, j--) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+}
+-------
+// 13. Reverse a sentence
+public static String reverseSentence(String sentence) {
+    String[] words = sentence.trim().split(\\s+);
+    Collections.reverse(Arrays.asList(words));
+    return String.join(" ", words);
+}
+
+// 14. Reverse a word
+public static String reverseWord(String word) {
+    return new StringBuilder(word).reverse().toString();
+}
+
+// 15. Reverse a string
+public static String reverseString(String str) {
+    return new StringBuilder(str).reverse().toString();
+}
+
+// 16. Find leap years
+public static boolean isLeapYear(int year) {
+    return (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
+}
+
+// 17. Frequency of characters
+public static Map<Character, Integer> characterFrequency(String str) {
+    Map<Character, Integer> freq = new HashMap<>();
+    for (char c : str.toCharArray())
+    freq.put(c, freq.getOrDefault(c, 0) + 1);
+    return freq;
+}
+
+// 18. Find pairs in array with given sum
+public static List<int[]> findPairs(int[] arr, int target) {
+    List<int[]> pairs = new ArrayList<>();
+    Set<Integer> seen = new HashSet<>();
+    for (int num : arr) {
+        if (seen.contains(target - num)) {
+            pairs.add(new int[]{num, target - num});
+        }
+        seen.add(num);
+    }
+    return pairs;
+}
+
+// 19. Rotate array to right by k positions
+public static void rotateArrayRight(int[] arr, int k) {
+    int n = arr.length;
+    k %= n;
+    reversePart(arr, 0, n - 1);
+    reversePart(arr, 0, k - 1);
+    reversePart(arr, k, n - 1);
+}
+
+private static void reversePart(int[] arr, int start, int end) {
+    while (start < end) {
+        int temp = arr[start];
+        arr[start++] = arr[end];
+        arr[end--] = temp;
+    }
+}
+
+// 20. Sort characters alphabetically & return unique
+public static String sortUniqueChars(String str) {
+    return str.chars().distinct()
+              .mapToObj(c -> String.valueOf((char)c))
+              .sorted()
+              .collect(Collectors.joining());
+}

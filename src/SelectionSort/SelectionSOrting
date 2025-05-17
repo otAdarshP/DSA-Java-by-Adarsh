@@ -1,0 +1,7 @@
+In selection sort we have 2 ways of getting the end result -
+- 1. Picking the smallest element and placing it at its correct index (smallest index). (and so on)
+- 2. Picking the largest element and placing it at its correct index (largest index). (and so on)
+
+
+it performs well on small arrays / lists.
+It is not stable.

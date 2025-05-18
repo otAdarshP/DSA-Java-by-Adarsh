@@ -14,6 +14,7 @@ public class Main {
     static void selectMaxElement (int [] arr){
         for (int i = 0; i < arr.length; i++){
             int last = arr.length - i - 1;
+//            we find the maxIndex and the last index and then swap the values inside the indexes.
             int maxIndex = getMaxIndex(arr, 0, last + 1);
             swap (arr, maxIndex, last);
         }

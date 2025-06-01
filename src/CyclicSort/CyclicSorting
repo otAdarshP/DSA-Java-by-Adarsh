@@ -2,3 +2,8 @@ Check -> Swap -> Change.
 The functioning of the cyclic sort depends on checking if the value at index i is at its correct index or not, if not at the correct index, it should be swapped with the value at that correct index, and then verified, if the value at i is at the correct index (arr[i]-1) or not.
 This is known as Cyclic Sorting - generally used when given continuous elements / elements in orer of 1 to N.
 
+    WHEN THE RANGE GIVEN IS:-
+    1 to N (1, n) => int correct = nums[i] - 1;
+    or in some cases,
+    0 to N (0, n) => int correct = nums[i];
+    -- In such cases, we can use the Cyclic Sort method.

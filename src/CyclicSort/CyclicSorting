@@ -7,3 +7,5 @@ This is known as Cyclic Sorting - generally used when given continuous elements 
     or in some cases,
     0 to N (0, n) => int correct = nums[i];
     -- In such cases, we can use the Cyclic Sort method.
+
+    VALUE - 1 == INDEX  --- This is the condition for Cyclic sort checking

@@ -18,7 +18,7 @@ class firstMissingPositive {
                 return index + 1;
             }
         }
-        return nums.length + 1; // when alll values are present but still we have to find the next element
+        return nums.length + 1; // when all values are present but still we have to find the next element
     }
 
     private static void swap (int[] nums, int first, int second){

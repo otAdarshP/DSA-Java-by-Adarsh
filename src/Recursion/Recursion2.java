@@ -14,6 +14,7 @@ public class Recursion2 {
 //        if only this is executed, it would run for indefinite time and produce an error. // WITHOUT BASE CONDITION
 //         STACK WOULD CONTINUE TO FILL AND EVERY CALL TAKES MEMORY
         System.out.println(n);
+//        this step below is tail recursion
         print (n+1);
     }
 }

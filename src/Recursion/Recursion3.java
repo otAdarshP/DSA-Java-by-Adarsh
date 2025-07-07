@@ -10,6 +10,7 @@ public class Recursion3 {
         if (n < 2){ // because, fibo (0) = 0; fibo(1) = 1
             return n;
         }
+//        this is not a tail recursion as it takes the answer, sums it up and then processes
         return fibo (n-1) + fibo (n-2);
     }
 }

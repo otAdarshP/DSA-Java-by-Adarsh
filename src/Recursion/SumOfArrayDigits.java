@@ -2,7 +2,7 @@ package Recursion;
 
 public class SumOfArrayDigits {
     public static void main (String[] args){
-        int [] nums = {1,2,3,4};
+        int [] nums = {1,2,90,4};
         int index = 0;
         int answer = sumOfDigits(nums, 0);
         System.out.println(answer);

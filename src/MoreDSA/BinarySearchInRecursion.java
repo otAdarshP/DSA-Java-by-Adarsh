@@ -1,3 +1,5 @@
+package MoreDSA;
+
 public class BinarySearchInRecursion {
     public static void main (String[] args){
         int[] arr = {6, 7, 8, 12, 34, 45, 65, 76};

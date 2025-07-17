@@ -1,3 +1,5 @@
+package MoreDSA;
+
 import java.util.Arrays;
 
 public class SortedArrayMatrix {
@@ -31,7 +33,7 @@ public class SortedArrayMatrix {
         return new int[]{-1, -1}; // Not found
     }
 
-    // Main search logic in a sorted 2D matrix
+    // MoreDSA.Main search logic in a sorted 2D matrix
     public static int[] searchInMatrix(int[][] matrix, int target) {
         int totalRows = matrix.length;
         int totalCols = matrix[0].length;

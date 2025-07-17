@@ -1,3 +1,5 @@
+package MoreDSA;
+
 public class printOneToFive {
     public static void main (String[] args){
 //        int n = 1;

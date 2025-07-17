@@ -1,3 +1,5 @@
+package MoreDSA;
+
 public class SwapNumbers {
     public static void swap(int a, int b) {
         System.out.println("Before Swap: a = " + a + ", b = " + b);

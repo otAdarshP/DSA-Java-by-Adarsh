@@ -1,4 +1,6 @@
-    import java.util.Scanner;
+package MoreDSA;
+
+import java.util.Scanner;
     import java.util.Arrays;
 
     public class Main {

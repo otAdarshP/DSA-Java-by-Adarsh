@@ -1,3 +1,5 @@
+package MoreDSA;
+
 public class factOfNum {
     public static void main (String[] args){
         int fact = 9;

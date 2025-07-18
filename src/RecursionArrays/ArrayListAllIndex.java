@@ -7,7 +7,7 @@ public class ArrayListAllIndex {
         int [] arr = {1,2,3,4,4,5};
         int target =  4;
         System.out.println (AllIndexValues(arr, 0, target));
-        
+
     }
 
     public static ArrayList<Integer> AllIndexValues (int [] arr, int index, int target){

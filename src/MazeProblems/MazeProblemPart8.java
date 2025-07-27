@@ -5,9 +5,9 @@ import java.util.Arrays;
 public class MazeProblemPart8 {
     public static void main (String [] args){
         boolean [][] maze = {
-                {true, true, true},
-                {true, true, true},
-                {true, true, true}
+                {true, true, true, true},
+                {true, true, true, true},
+                {true, true, true, true}
         };
         int [][] paths = new int [maze.length][maze[0].length];
         printPathSteps("", 0, 0, maze, 1, paths);

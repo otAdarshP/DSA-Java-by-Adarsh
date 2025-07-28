@@ -1,0 +1,202 @@
+A MUCH MUCH MORE OPTIMIZED WAY OF SOLVING
+
+public class Solution {
+    public List<List<String>> solveNQueens(int n) {
+        List<List<String>> result = new ArrayList<>();
+        boolean[] cols = new boolean[n];
+        boolean[] diag1 = new boolean[2 * n - 1];  // row + col
+        boolean[] diag2 = new boolean[2 * n - 1];  // row - col + n - 1
+        char[][] board = new char[n][n];
+
+        for (char[] row : board) {
+            Arrays.fill(row, '.');
+        }
+
+        solve(0, board, result, cols, diag1, diag2);
+        return result;
+    }
+
+    private void solve(int row, char[][] board, List<List<String>> result,
+                       boolean[] cols, boolean[] diag1, boolean[] diag2) {
+        if (row == board.length) {
+            List<String> solution = new ArrayList<>();
+            for (char[] r : board) {
+                solution.add(new String(r));
+            }
+            result.add(solution);
+            return;
+        }
+
+        for (int col = 0; col < board.length; col++) {
+            int d1 = row + col;
+            int d2 = row - col + board.length - 1;
+            if (cols[col] || diag1[d1] || diag2[d2]) continue;
+
+            cols[col] = diag1[d1] = diag2[d2] = true;
+            board[row][col] = 'Q';
+
+            solve(row + 1, board, result, cols, diag1, diag2);
+
+            board[row][col] = '.';
+            cols[col] = diag1[d1] = diag2[d2] = false;
+        }
+    }
+}
+
+
+--------------------------------------------------------------
+
+
+
+
+
+import java.util.*;
+
+public class NQueensProblem {
+
+    public List<List<String>> solveNQueens(int target) {
+        List<List<String>> result = new ArrayList<>();
+        boolean[][] board = new boolean[target][target];
+        solve(0, board, result, target);
+        return result;
+    }
+
+    private void solve(int row, boolean[][] board, List<List<String>> result, int target) {
+        if (row == target) {
+            result.add(construct(board, target));
+            return;
+        }
+
+        for (int col = 0; col < target; col++) {
+            if (isSafe(board, row, col, target)) {
+                board[row][col] = true;
+                solve(row + 1, board, result, target);
+                board[row][col] = false; // Backtrack
+            }
+        }
+    }
+
+    private boolean isSafe(boolean[][] board, int row, int col, int target) {
+        // Check vertical column
+        for (int i = 0; i < row; i++) {
+            if (board[i][col]) return false;
+        }
+
+        // Check upper-left diagonal
+        for (int i = 1; i <= Math.min(row, col); i++) {
+            if (board[row - i][col - i]) return false;
+        }
+
+        // Check upper-right diagonal
+        for (int i = 1; i <= Math.min(row, target - col - 1); i++) {
+            if (board[row - i][col + i]) return false;
+        }
+
+        return true;
+    }
+
+    private List<String> construct(boolean[][] board, int target) {
+        List<String> solution = new ArrayList<>();
+        for (int i = 0; i < target; i++) {
+            StringBuilder sb = new StringBuilder();
+            for (int j = 0; j < target; j++) {
+                sb.append(board[i][j] ? 'Q' : '.');
+            }
+            solution.add(sb.toString());
+        }
+        return solution;
+    }
+
+    // For testing
+    public static void main(String[] args) {
+        NQueensProblem nq = new NQueensProblem();
+        int target = 4;
+        List<List<String>> solutions = nq.solveNQueens(target);
+
+        for (List<String> sol : solutions) {
+            for (String row : sol) {
+                System.out.println(row);
+            }
+            System.out.println("--------");
+        }
+    }
+}
+
+
+
+-----------------------------------------------------------------
+
+
+import java.util.*;
+
+public class NQueensProblem {
+
+    public List<List<String>> solveNQueens(int n) {
+        List<List<String>> result = new ArrayList<>();
+        boolean[][] board = new boolean[n][n];
+        solve(0, board, result);
+        return result;
+    }
+
+    private void solve(int row, boolean[][] board, List<List<String>> result) {
+        if (row == board.length) {
+            result.add(construct(board));
+            return;
+        }
+
+        for (int col = 0; col < board.length; col++) {
+            if (isSafe(board, row, col)) {
+                board[row][col] = true;
+                solve(row + 1, board, result);
+                board[row][col] = false; // Backtrack
+            }
+        }
+    }
+
+    private boolean isSafe(boolean[][] board, int row, int col) {
+        // Check vertical column
+        for (int i = 0; i < row; i++) {
+            if (board[i][col]) return false;
+        }
+
+        // Check upper-left diagonal
+        for (int i = 1; i <= Math.min(row, col); i++) {
+            if (board[row - i][col - i]) return false;
+        }
+
+        // Check upper-right diagonal
+        for (int i = 1; i <= Math.min(row, board.length - col - 1); i++) {
+            if (board[row - i][col + i]) return false;
+        }
+
+        return true;
+    }
+
+    private List<String> construct(boolean[][] board) {
+        List<String> solution = new ArrayList<>();
+        for (boolean[] row : board) {
+            StringBuilder sb = new StringBuilder();
+            for (boolean cell : row) {
+                sb.append(cell ? 'Q' : '.');
+            }
+            solution.add(sb.toString());
+        }
+        return solution;
+    }
+
+    // You can test with a main method:
+    public static void main(String[] args) {
+        NQueensProblem nq = new NQueensProblem();
+        int n = 4;
+        List<List<String>> solutions = nq.solveNQueens(n);
+
+        for (List<String> solution : solutions) {
+            for (String row : solution) {
+                System.out.println(row);
+            }
+            System.out.println();
+        }
+
+        System.out.println("Total solutions: " + solutions.size());
+    }
+}

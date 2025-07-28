@@ -61,7 +61,7 @@ public class SudokuSolver {
         boolean leftEmpty = true; // none are empty
         for (int i = 0; i < n; i++){
             for (int j = 0; j < n; j++){
-                if (board[row][col] == 0){
+                if (board[i][j] == 0){
                     row = i;
                     col = j;
                     leftEmpty = false;

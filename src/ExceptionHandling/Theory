@@ -1,0 +1,5 @@
+        Object  -->     Throwables -->  Exceptions and Errors.
+
+        Exceptions:
+            - Runtime (eg. Arithmetic exception : divided by 0)
+            - Compile time (eg. File not found.)

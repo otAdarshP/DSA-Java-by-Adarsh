@@ -9,7 +9,13 @@ public class Main{
         list.addFirst(3);
         list.addLast(5);
         list.addLast(7);
-        list.display(list);
+        list.display();
+        list.deleteFirst();
+        list.display();
+        list.deleteLast();
+        list.display();
+        System.out.println(list.getSize());
+
 
     }
     

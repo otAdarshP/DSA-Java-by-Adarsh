@@ -103,4 +103,27 @@ public class LL {
     public int getSize(){
         return size;
     }
+
+    // Recursive method to reverse the list
+    public Node reverseRecursive(Node head) {
+        // Base case: empty list or only one node
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        // Recursively reverse the rest of the list
+        Node reversedHead = reverseRecursive(head.next);
+
+        // Adjust the pointers
+        head.next.next = head;
+        head.next = null;
+
+        return reversedHead;
+    }
+
+    // Helper method to trigger reversal from outside
+    public void reverse() {
+        head = reverseRecursive(head);
+    }
+
 }

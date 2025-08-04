@@ -1,5 +1,7 @@
- Bubble sort is the technique of comparing the adjacent elements (taken as i being the start (0) and j as the internal loop for travesring between all the elements.
- We compare the elements at index 1 and 2 (i and j), and check, if the element at index 1 is larger than the element at index 2, or -
+ Bubble sort is the technique of comparing the adjacent elements
+ (taken as i being the start (0) and j as the internal loop for traversing between all the elements.
+ We compare the elements at index 1 and 2 (i and j), and check, if the element at index 1 is larger than the element at index 2,
+ or -
  if " i > i + 1", we swap the elements, and do this till all the elements are swapped.
  This technique is also followed in In-place pattern as the space complexity is O(1).
 
@@ -10,7 +12,9 @@
  1, 3, 2, 4, 5
  3rd iteration:
  1, 2, 3, 4, 5 -> finally sorted in the bubble away.
+ Checks the element from the start of the indexes everytime
 
+OR : AFTER EVERY ITERATION, THE LARGEST ELEMENT IN THE ARRAYLIST COMES AT THE END
 
  Bubble sort is also known as Sinking sort and exchange sort.
 

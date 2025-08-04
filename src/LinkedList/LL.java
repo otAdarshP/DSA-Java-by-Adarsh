@@ -126,4 +126,26 @@ public class LL {
         head = reverseRecursive(head);
     }
 
+
+    // reverse a list using iteration
+
+    public static Node iterativeReverse(Node head){
+        if (head == null || head.next == null){
+            return head;
+        }
+        Node prev = head;
+        Node curr = head.next;
+        prev.next = null;
+
+        while (curr != null){
+            Node next = curr.next;
+            curr.next = prev;
+
+            // update the nodes:
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
+
 }

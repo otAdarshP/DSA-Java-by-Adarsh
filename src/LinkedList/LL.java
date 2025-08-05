@@ -106,38 +106,29 @@ public class LL {
 
     // Recursive method to reverse the list
     public Node reverseRecursive(Node head) {
-        // Base case: empty list or only one node
+        // base condition:
         if (head == null || head.next == null) {
             return head;
         }
 
-        // Recursively reverse the rest of the list
-        Node reversedHead = reverseRecursive(head.next);
-
-        // Adjust the pointers
+        Node newHead = reverseRecursive(head.next);
         head.next.next = head;
         head.next = null;
-
-        return reversedHead;
-    }
-
-    // Helper method to trigger reversal from outside
-    public void reverse() {
-        head = reverseRecursive(head);
+        return newHead;
     }
 
 
     // reverse a list using iteration
 
-    public static Node iterativeReverse(Node head){
-        if (head == null || head.next == null){
+    public static Node iterativeReverse(Node head) {
+        if (head == null || head.next == null) {
             return head;
         }
         Node prev = head;
         Node curr = head.next;
         prev.next = null;
 
-        while (curr != null){
+        while (curr != null) {
             Node next = curr.next;
             curr.next = prev;
 
@@ -147,5 +138,4 @@ public class LL {
         }
         return prev;
     }
-
 }

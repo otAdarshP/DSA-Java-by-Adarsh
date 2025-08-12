@@ -63,7 +63,7 @@ public class RootFinding {
         System.out.println(root.data);
     }
 
-    // main --> Level Order traversal
+    // main --> Level Order traversal: level 1, level 2, level 3...
     public static void LevelOrder (Node root){
         if (root == null){
             return;
@@ -91,11 +91,9 @@ public class RootFinding {
                     queueTree.add (currNode.right);
                 }
             }
-
-
         }
-
     }
+
     public static void main (String [] args){
         int [] nodes = {1,2,3,4,-1,-1,5,-1,-1,6,-1,-1,7,-1,-1};
         BinaryTree tree = new BinaryTree();

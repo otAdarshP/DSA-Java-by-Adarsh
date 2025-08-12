@@ -94,15 +94,27 @@ public class RootFinding {
         }
     }
 
+    public static int nodesSum(Node root) {
+
+        if (root == null){
+            return 0;
+        }
+        int leftNodes = nodesSum (root.left);
+        int rightNodes = nodesSum (root.right);
+
+        return leftNodes + rightNodes + 1;
+    }
+
     public static void main (String [] args){
         int [] nodes = {1,2,3,4,-1,-1,5,-1,-1,6,-1,-1,7,-1,-1};
         BinaryTree tree = new BinaryTree();
         Node root = tree.buildTree(nodes);
-        preOrder(root);
-        InOrder(root);
-        PostOrder(root);
-        LevelOrder(root);
-        System.out.println(root.data);
+//        preOrder(root);
+//        InOrder(root);
+//        PostOrder(root);
+//        LevelOrder(root);
+//        System.out.println(root.data);
+        System.out.print (nodesSum(root));
     }
 
 

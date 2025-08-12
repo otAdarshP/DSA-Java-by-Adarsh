@@ -69,17 +69,30 @@ public class RootFinding {
             return;
         }
 
-        Queue <Node> queue = new LinkedList <>();
-        queue.add (root);
-        queue.add (null);
+        Queue <Node> queueTree = new LinkedList <>();
+        queueTree.add (root);
+        queueTree.add (null);
 
-        while (!queue.isEmpty()){
-            if (queue == null){
-                
+        while (!queueTree.isEmpty()){
+            Node currNode = queueTree.remove();
+            if (currNode == null){
+                System.out.println();
+
+                if (queueTree.isEmpty()){
+                    break;
+                }
             }
             else{
-
+                System.out.println(currNode.data+"");
+                if (currNode.left != null){
+                    queueTree.add (currNode.left);
+                }
+                if (currNode.right != null){
+                    queueTree.add (currNode.right);
+                }
             }
+
+
         }
 
     }
@@ -88,6 +101,9 @@ public class RootFinding {
         BinaryTree tree = new BinaryTree();
         Node root = tree.buildTree(nodes);
         preOrder(root);
+        InOrder(root);
+        PostOrder(root);
+        LevelOrder(root);
         System.out.println(root.data);
     }
 

@@ -30,10 +30,20 @@ public class RootFinding {
         }
     }
 
+    public static void preOrder (Node root){
+        if (root == null){
+            return;
+        }
+        System.out.println(root.data);
+        preOrder (root.left);
+        preOrder(root.right);
+    }
+
     public static void main (String [] args){
         int [] nodes = {1,2,3,4,-1,-1,5,-1,-1,6,-1,-1,7,-1,-1};
         BinaryTree tree = new BinaryTree();
         Node root = tree.buildTree(nodes);
+        Node root = tree.preOrder(root);
         System.out.println(root.data);
     }
 

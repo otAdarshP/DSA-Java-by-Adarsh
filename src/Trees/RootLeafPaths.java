@@ -6,7 +6,7 @@ public class RootLeafPaths {
     public static void main (String [] args){
         int [] nodes = {8,5,3,6,10,11,14};
 
-        
+
     }
 
     static class Node{

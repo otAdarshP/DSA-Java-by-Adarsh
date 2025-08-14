@@ -83,7 +83,7 @@ public class RootFinding {
                 }
             }
             else{
-                System.out.println(currNode.data+"");
+                System.out.print(currNode.data + "");
                 if (currNode.left != null){
                     queueTree.add (currNode.left);
                 }
@@ -112,9 +112,9 @@ public class RootFinding {
 //        preOrder(root);
 //        InOrder(root);
 //        PostOrder(root);
-//        LevelOrder(root);
+        LevelOrder(root);
 //        System.out.println(root.data);
-        System.out.print (nodesSum(root));
+//        System.out.print (nodesSum(root));
     }
 
 

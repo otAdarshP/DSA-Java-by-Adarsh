@@ -1,0 +1,79 @@
+Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+Example 1:
+Input: s = "anagram", t = "nagaram"
+Output: true
+
+1.  sorting and conversion to charArrays : O(n log n) T.C.
+
+public boolean isAnagram (String s, String t){
+    if (s.length() != t.length()){
+        return false;
+    }
+    char[] sCharArray = s.toCharArray();
+    char[] tCharArray = t.toCharArray();
+
+    Arrays.sort (sCharArray);
+    Arrays.sort (tCharArray);
+
+    return Arrays.equals (sCharArray, tCharArray);
+}
+
+2. HashMaps for adding the s string and then removing those which are in the t string, final should be 0. : o(n) TC. O(n) + o(n) + o(k) = o(n)
+
+public boolean isAnagram (String s, String t){
+    if (s.length () != t.length ()){
+        return false;
+    }
+
+    HashMap <String, Integer> map = new HashMap <>();
+
+    for (char c : s.toCharArray()){
+        if (map.containsKey(c){
+            map.put (c, map.get(c)+1);
+        }
+        else{
+            map.put (c, 1);
+        }
+    }
+
+    for (char c : t.toCharArray()){
+        if (!map.containsKey(c)){
+            return false;
+        }
+        else{
+            map.put (c, map.get(c) - 1);
+        }
+    }
+
+    for (int val : map.values()){
+        if (val != 0){
+            return false;
+        }
+    }
+    return true;
+}
+
+3. FREQ Count using UNI CODE method : O(1) T.C.
+
+public boolean isAnagram (String s, String t){
+    if (s.length() != t.length()){
+        return false;
+    }
+
+    int [] freq : new int [26];
+    for (char c : s.toCharArray()){
+        freq[c - 'a'] ++;
+    }
+    for (char c : t.toCharArray()){
+        freq[c - 'a'] --;
+    }
+
+    for (int count : freq){
+        if (count != 0){
+            return false;
+        }
+        return true;
+    }
+}
+
+

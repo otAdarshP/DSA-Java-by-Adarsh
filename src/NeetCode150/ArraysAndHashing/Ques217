@@ -1,0 +1,42 @@
+Given an integer array nums, return true if any value appears at least twice in the array,
+and return false if every element is distinct.
+
+1. Brute force - O(n^2) T.C.
+
+public static boolean comesTwice (int [] nums){
+    int count = 0;
+    for (int i = 0; i < nums.length; i++){
+        for (int j = i+1; j < nums.length; j++){
+            if (nums[i] == nums[j]){
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+2. better optimized solution - O(n log n) for sorting and O(n) for the loop => O (n log n) T.C.
+
+public static boolean comesTwice (int[] nums{
+    Arrays.sort (nums);
+    for (int i = 0; i < nums.length; i++){
+        if (nums[i] == nums[i+1]{
+            return true;
+        }
+    }
+    return false;
+}
+
+3. Most optimized approach - O(n) T.C.
+
+public static boolean comesTwice (int [] nums){
+    HashSet<Integer> set = new HashSet <Integer>();
+
+    for (int num : nums){
+        if (set.contains (num)){ // when we try to add the same num in set, it returns true - that this is a duplicate.
+            return true;
+        }
+        set.add (num); // first this will run as we are adding num in the set then above
+    }
+    return false;
+}

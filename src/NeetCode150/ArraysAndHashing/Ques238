@@ -1,0 +1,59 @@
+1. Using loops : works for smaller arrays: TC = O(N^2)
+
+public int[] productExceptSelf(int[] nums) {
+    for (int i = 0; i < nums.length; i++){
+        int product = 1;
+        for (int j = 0; j < nums.length; j++) {
+            // while j loops through, we will multiply all elements unless it is i, as we need to skip the nums[i].
+            if (i != j){
+                prod *= nums[j];
+            }
+        }
+        answer [i] = prod;
+    }
+    return answer;
+}
+
+2. using Prefix and Suffix ways. TC = O(N)
+
+public int[] productExceptSelf(int[] nums) {
+    int n = nums.length;
+    int [] prefix = new int [n];
+    int [] suffix = new int [n];
+    int [] answer = new int [n];
+
+    prefix[o] = 1;
+    for (int i = 1; i < n; i++){
+        prefix[i] = prefix[i-1] * nums[i-1];
+    }
+
+    suffix[n-1] = 1;
+    for (int i = n -2; i>= 0; i++){
+        suffix[i] = suffix[i+1] * nums[i+1];
+    }
+
+    // returning the answer
+    for (int i = 0; i < n; i++){
+        answer [i] = prefix[i] * suffix[i];
+    }
+    return answer;
+}
+
+3. Constant extra space approach (don't use prefix in this ques). TC = O(1)
+
+public int[] productExceptSelf(int[] nums) {
+    int n = nums.length;
+    int[] answer = new int [n];
+
+    answer [0] = 1;
+    for (int i = 1; i < n; i++){
+        answer[i] = answer[i-1] * nums[i-1];
+    }
+
+    int suffix = 1;
+    for (int i = n-1; i >= 0; i--){
+        answer[i] *= suffix;
+        suffix *= nums[i];
+    }
+    return answer;
+}

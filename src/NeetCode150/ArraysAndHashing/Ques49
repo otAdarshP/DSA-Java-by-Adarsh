@@ -1,0 +1,41 @@
+Given an array of strings strs, group the anagrams together.
+You can return the answer in any order.
+
+Example 1:
+Input: strs = ["eat","tea","tan","ate","nat","bat"]
+Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+
+1. Sorting and hashing - O(n * k log k) T.C.
+
+public List<List<String>> groupAnagrams(String[] strs){
+
+}
+
+
+2. Count frequency of char => O(n * k) T.C.
+
+public List<List<String>> groupAnagrams(String[] strs){
+    HashMap <String, List<String>> map = new HashMap<>();
+
+    for (String str = strs){
+        int[] freq = new int [26];
+
+        for (char[] ch = str.toCharArray()){
+               freq[ch - 'a']++;
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (int num : freq){
+            sb.append(num).append(#);
+        }
+
+        // convert into string Key
+        String key = sb.toString();
+
+        if (!map.containsKey(key)){
+        map.put (key, new ArrayList<>());
+        }
+        map.get(key).add(str);
+    }
+    return new ArrayList<>(map.values());
+}

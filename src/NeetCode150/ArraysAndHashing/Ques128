@@ -1,0 +1,89 @@
+Given an unsorted array of integers nums,
+return the length of the longest consecutive elements sequence.
+You must write an algorithm that runs in O(n) time.
+
+1. Brute force : O(n^2)
+
+public int longestConsecutive(int[] nums) {
+    int longest = 0;
+
+    for (int num : nums){
+        int currentNum = num;
+        int streak = 1;
+
+        while (ArrayContains (nums, currentNum + 1)){
+            currentNum ++;
+            streak ++;
+        }
+
+        longest = Math.max (longest, streak);
+    }
+    return longest;
+}
+
+public boolean ArrayContains (int[] nums, int target){
+    for (int n : nums){
+        if (n == target){
+            return true;
+        }
+    }
+    return false;
+}
+
+2. Sorting approach : O(n log n) + O(n) => O(N log N)
+
+public int longestConsecutive(int [] nums){
+    if (nums.length == 0){
+        return 0;
+    }
+
+    Arrays.sort (nums);
+    int longest = 1;
+    int streak = 1;
+
+    for (int i = 0; i < nums.length; i++){
+        // duplicate:
+        if (nums[i] == nums [i-1]){
+            continue;
+        }
+        // to move forward;
+        if (nums[i] == nums[i-1]+1){
+            streak++;
+        }
+        else{
+            streak = 1;
+        }
+        longest = Math.max (longest, streak);
+    }
+    return longest;
+}
+
+3. HashSet : O(1) constant time.
+
+public int longestConsecutive (int[] nums){
+    if (nums.length == 0){
+        return 0;
+    }
+
+    HashMap <Integer> set = new HashSet<>();
+
+    for (int num : nums){
+        set.add (num);
+    }
+    int longest =  1;
+
+    for (int num : set){
+
+        if (!set.contains(num-1)){
+            int currentNum = num;
+            int streak = 1;
+
+            while (set.contains (num+1)){
+                currentNum ++;
+                streak ++;
+            }
+        }
+        longest = Math.max (longest, streak);
+    }
+    return longest;
+}

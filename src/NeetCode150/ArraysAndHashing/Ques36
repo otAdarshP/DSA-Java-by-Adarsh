@@ -110,4 +110,70 @@ public boolean isValidSudoku(char[][] board) {
 }
 
 
-3. 
+3. Boolean arrays method. TC = O(1)
+
+public boolean isValidSudoku(char[][] board){
+    int n = 9;
+    boolean [][] row = new boolean [n][n];
+    boolean [][] col = new boolean [n][n];
+    boolean [][] boxes = new boolean [n][n];
+
+    // check through the whole box
+    for (int i = 0; i < n; i++){
+        for (int j = 0; j < n; j++){
+            char ch = board[i][j];
+            if (ch == '.'){
+                continue;
+            }
+
+            int num = ch - '1'; // shift 1-9 -> 0-8
+            int boxIndex = i / 3 * 3 + j / 3;
+
+            // if any of this is true, then the entry exists in the sudoku
+            if (row[i][num] || col[j][num] || boxes [boxIndex][num]){
+                return false; // invalid entries
+            }
+
+            // mark the numbers as seen
+            row[i][num] = true;
+            col[j][num] = true;
+            boxes[boxIndex][num] = true;
+        }
+    }
+    return true;
+}
+
+4. Bit masking. TC: O(1), but this is a concept used in Competitive Programming.
+DON'T UNDERSTAND THE LOGIC, BUT THIS IS HOW THE CODE WORKS
+
+public boolean isValidSudoku(char[][] board){
+
+     int n = 9;
+     int [] row = new int[n];
+     int[] col = new int[n];
+     int [] boxes = new int [n];
+
+     for (int i = 0; i < n; i++){
+        for (int j = 0; j < n; j++){
+            char ch = board[i][j];
+            if (ch == '.'){
+                continue;
+            }
+
+            int num = ch - '1';
+
+            int mask = 1 << num;
+
+            int boxIndex = (i / 3) * 3 + (j / 3);
+
+            if ((row[i] & mask) > 0 || (col[j] & mask) > 0 || (boxes[boxIndex] & mask) > 0){
+                return false;
+            }
+
+            row [i] |= mask;
+            col[j] |= mask;
+            boxes[boxIndex] |= mask;
+        }
+     }
+     return true;
+}

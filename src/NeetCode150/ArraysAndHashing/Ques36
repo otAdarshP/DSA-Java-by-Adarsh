@@ -57,4 +57,57 @@ public boolean isValidSudoku(char[][] board) {
 }
 
 
-2. 
+2. hashset constraints validation . TC: O(1)
+
+public boolean isValidSudoku(char[][] board) {
+    int n = 9;
+    HashSet <Character> row = new HashSet[n];
+    HashSet <Character> col = new HashSet[n];
+    HashSet <Character> boxes = new HashSet[n];
+
+    for (int i = 0; i <n; i++){
+        row[i] = new HashSet<>();
+        col[i] = new HashSet<>();
+        boxes[i] = new HashSet<>();
+    }
+
+    // checking the whole sudoku:
+    for (int r = 0; r < n; r++){
+        for (int c = 0; c < n; c++){
+            char num = board[r][c];
+            if (num == '.'){
+                continue;
+            }
+
+
+            // row check
+            if (row[r].contains(num)){
+            return false;
+            }
+            else{
+                row[r].add(num);
+            }
+
+            // col check
+            if (col[c].contains(num)){
+                return false;
+            }
+            else{
+                col[c].add(num);
+            }
+
+            // finding which box of the sudoku does the value exists in
+            int boxIndex = r / 3 * 3 + c / 3;
+            if (boxes[boxIndex].contains(num)){
+                return false;
+            }
+            else{
+                boxes[boxIndex].add(num);
+            }
+        }
+    }
+    return true;
+}
+
+
+3. 

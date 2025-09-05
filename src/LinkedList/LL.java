@@ -138,4 +138,62 @@ public class LL {
         }
         return prev;
     }
+
+// question 143
+
+    public static Node mid (Node head){
+        Node slow = head;
+        Node fast = head;
+
+
+        while (fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+
+        }
+        return slow;
+    }
+
+    public static Node reverse (Node head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        Node prev = head;
+        Node curr = head.next;
+        prev.next = null;
+
+        while (curr != null) {
+            Node next = curr.next;
+            curr.next = prev;
+
+            // update
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
+
+    public void reOrderList (Node head){
+        if (head == null || head.next == null){
+            return;
+        }
+
+        Node middle = mid(head);
+        Node secondHead = reverse(middle.next);
+        middle.next = null;
+        Node firstHead = head;
+
+        while (secondHead != null) {
+            Node tempHead1 = firstHead.next;
+            Node tempHead2 = secondHead.next;
+
+            firstHead.next = secondHead;
+            secondHead.next = tempHead1;
+
+            firstHead = tempHead1;
+            secondHead = tempHead2;
+        }
+    }
+
+
 }

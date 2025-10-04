@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class QuickSortRecursion {
     public static void main (String[] args){
-        int[] arr= {10, 8, 7, 4, 9, 6, 5, 3, 1, 2};
+        int[] arr= {10, 8, 7, 4, 13, 14, 6, 5, 3, 1, 2};
         sort(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
     }

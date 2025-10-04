@@ -1,5 +1,4 @@
 package CompleteTrees;
-
 import java.util.*;
 
 class BinaryTree {

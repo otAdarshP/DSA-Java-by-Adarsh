@@ -5,15 +5,22 @@ import java.util.Scanner;
 public class FibSeries {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
         System.out.print("Enter the first number: ");
         int start = sc.nextInt();
-        System.out.print("Till what do we need the fibonacci number for? ");
+        System.out.print("Enter the second number ");
+        int second = sc.nextInt();
+        System.out.print("The fibonacci series end is: " );
         int end = sc.nextInt();
-        System.out.print("The fibonacci series is: " );
-        int[] nums = new int[end];
-        for (int interate = 0; interate < end; interate++) {
-            nums[interate] = nums[interate] + nums[interate-1];
+        int[] fibSeries = new int[end];
+        fibSeries[0] = start;
+        if (end > 1){
+            fibSeries[1] = second;
+        }
+        for (int i = 2; i < end; i++) {
+            fibSeries[i] = fibSeries[i-1]+fibSeries[i-2];
+        }
+        for (int num : fibSeries) {
+            System.out.print(num + " ");
         }
     }
 }

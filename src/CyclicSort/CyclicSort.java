@@ -9,22 +9,21 @@ public class CyclicSort {
         System.out.println (Arrays.toString(arr));
     }
 
-    static void CycleSorting (int[] arr){
+    static void CycleSorting(int[] arr){
         int i = 0;
-        while (i < arr.length){
-            int CorrectIndexedValue = arr[i] - 1;
-            if (arr[i] != arr[CorrectIndexedValue]){
-                swap (arr,  i, CorrectIndexedValue);
+        while ( i < arr.length ){
+            int correctIndexPosition = arr[i] - 1;
+            if (arr[i] != arr[correctIndexPosition]){
+                swap(arr, i, correctIndexPosition);
             }
             else{
                 i++;
             }
         }
     }
-
-    static  void swap (int[] arr, int first, int second) {
-        int temp = arr[first];
-        arr[first] = arr[second];
-        arr[second] = temp;
+    static void swap (int[]arr, int start, int end){
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
     }
 }

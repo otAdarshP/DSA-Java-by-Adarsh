@@ -22,6 +22,6 @@ public class LearnDeque {
         deque.peekFirst();
         deque.peekLast();
 
-        
+
     }
 }
